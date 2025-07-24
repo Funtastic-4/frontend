@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin, Tag, Ticket } from "lucide-react";
+import { Calendar, Clock, MapPin, Ticket } from "lucide-react";
 
 import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
@@ -16,9 +16,9 @@ const EventDetails = () => {
       </div>
 
       {/* Event Image */}
-      <div className="mb-6 overflow-hidden rounded-2xl">
+      <div className="mb-6 overflow-hidden rounded-2xl h-40 md:h-52">
         <img
-          src="https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
           alt="Event Image"
           className="h-full w-full object-cover"
         />
@@ -56,6 +56,18 @@ const EventDetails = () => {
                 <br />
                 After the workshop, we will guide you on a cultural tour of the surrounding area, visiting historical landmarks and hidden gems that are often missed by tourists. This is more than just a tour; it's a chance to connect with the local community and support the preservation of traditional crafts.
               </p>
+              {/* Additional Images */}
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="overflow-hidden rounded-lg">
+                  <img src="https://images.unsplash.com/photo-1591602207244-022587a3194a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Batik Workshop" className="w-full h-32 object-cover" />
+                </div>
+                <div className="overflow-hidden rounded-lg">
+                  <img src="https://images.unsplash.com/photo-1587440871875-191322fc8383?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cultural Tour" className="w-full h-32 object-cover" />
+                </div>
+                <div className="overflow-hidden rounded-lg">
+                  <img src="https://images.unsplash.com/photo-1582510003007-3590d8288502?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Yogyakarta Heritage" className="w-full h-32 object-cover" />
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -77,10 +89,6 @@ const EventDetails = () => {
               <Button className="w-full bg-red-500 text-white hover:bg-red-600">
                 Register Now
               </Button>
-              <div className="mt-4 flex items-center gap-2 text-sm text-gray-600">
-                <Tag size={14} />
-                <span>Tags: Art, Culture, Workshop, Tour</span>
-              </div>
             </CardContent>
           </Card>
         </div>
