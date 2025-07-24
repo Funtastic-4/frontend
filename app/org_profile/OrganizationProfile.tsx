@@ -140,30 +140,28 @@ const OrganizationProfile = () => {
           </h2>
           <div className="space-y-4">
             {profile.events.map((event, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-200 hover:-translate-y-1 border-red-100">
-                <CardContent className="p-6">
-                  <div className="flex gap-4">
-                    <div className="bg-red-500 text-white p-3 rounded-xl text-center min-w-[60px] h-fit">
-                      <div className="text-xl font-bold leading-none">{event.date.day}</div>
-                      <div className="text-xs font-semibold uppercase mt-1">{event.date.month}</div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
-                      <p className="text-gray-600 mb-3">{event.description}</p>
-                      <div className="flex gap-4 text-sm text-gray-500">
-                        <div className="flex items-center gap-1">
-                          <Users size={14} />
-                          <span>{event.participants} participants</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin size={14} />
-                          <span>{event.location}</span>
+              <a href="/event_details" key={index}>
+                <Card className="hover:shadow-lg transition-all duration-200 hover:-translate-y-1 border-red-100">
+                  <CardContent className="p-6">
+                    <div className="flex gap-4">
+                      <div className="bg-red-500 text-white p-3 rounded-xl text-center min-w-[60px] h-fit">
+                        <div className="text-xl font-bold leading-none">{event.date.day}</div>
+                        <div className="text-xs font-semibold uppercase mt-1">{event.date.month}</div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
+                        <p className="text-gray-600 mb-3">{event.description}</p>
+                        <div className="flex gap-4 text-sm text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <MapPin size={14} />
+                            <span>{event.location}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </a>
             ))}
           </div>
         </section>
