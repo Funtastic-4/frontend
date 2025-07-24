@@ -66,7 +66,7 @@ const mockProfile: OrganizationProfile = {
     },
   ],
   contact: {
-    instagram: "@cyrilusy",
+    instagram: "cyrilusy",
     phone: "+62 812 3456 7890",
     website: "https://cyrilusy.org",
   },

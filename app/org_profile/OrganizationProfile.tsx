@@ -73,7 +73,7 @@ const OrganizationProfile = () => {
             {profile.contact && (
               <div className="flex items-center gap-4 mt-4 text-gray-700">
                 {profile.contact.instagram && (
-                  <a href={`https://instagram.com/${profile.contact.instagram.substring(1)}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-red-500">
+                  <a href={`https://instagram.com/${profile.contact.instagram}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-red-500">
                     <Instagram size={16} />
                     <span>{profile.contact.instagram}</span>
                   </a>
