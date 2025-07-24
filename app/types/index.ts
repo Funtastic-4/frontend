@@ -27,8 +27,8 @@ export interface Event {
   };
   title: string;
   description: string;
-  participants: number;
   location: string;
+  registrationFee?: number;
 }
 
 export interface Review {
