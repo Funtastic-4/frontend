@@ -29,6 +29,7 @@ export interface Event {
   description: string;
   participants: number;
   location: string;
+  link?: string;
 }
 
 export interface Review {
@@ -39,4 +40,29 @@ export interface Review {
   };
   rating: number;
   comment: string;
+}
+
+// Tradition Detail
+export interface TraditionDetail {
+  coverPhoto: string;
+  name: string;
+  location: string;
+  description: string
+  funfact: FunFact[];
+  places: Places[];
+  events: Event[];
+  reviews: Review[];
+}
+
+
+export interface FunFact {
+  title: string;
+  value: string;
+}
+
+export interface Places {
+  name: string;
+  location: string;
+  description: string;
+  link: string;
 }
