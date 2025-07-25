@@ -19,7 +19,6 @@ export default function CulturalHeritageDetail() {
     );
   }
 
-  // Get additional data
   const experiences = getExperiencesForSite(site.id);
   const reviews = getReviewsForSite(site.id);
 
@@ -110,7 +109,6 @@ export default function CulturalHeritageDetail() {
           </div>
         </div>
 
-        {/* Unified About and Quick Info Section */}
         <Card className="rounded-2xl shadow-lg border-red-200 mb-6">
           <CardContent className="p-4 sm:p-6">
             <div className="grid lg:grid-cols-3 gap-6">

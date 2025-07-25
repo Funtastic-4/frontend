@@ -5,7 +5,6 @@ import { Badge } from "~/components/ui/badge";
 import { Star, MapPin } from "lucide-react";
 
 export default function CulturalHeritageList() {
-  // Get type-based styling for each heritage type
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'food': return 'bg-red-50 text-red-700 border-red-200';
