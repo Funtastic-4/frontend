@@ -4,16 +4,25 @@ import { Button } from "~/components/ui/button";
 import { useState, useEffect } from "react";
 import { ProvinceData } from "~/module/data/province";
 import { CityData } from "~/module/data/city";
+import { useNavigate } from "react-router";
+import { mockEventDetail } from "~/services/api";
 
 export function HomePage() {
 	const [searchValue, setSearchValue] = useState("");
 	const [showResults, setShowResults] = useState(false);
 	const [currentItemIndex, setCurrentItemIndex] = useState(0);
+	const navigate = useNavigate();
 
 	const allLocations = [
 		...ProvinceData.map(p => ({ ...p, type: 'provinsi' as const })),
 		...CityData.map(c => ({ ...c, type: 'kota' as const }))
 	];
+
+	const allEvents = [
+		{ ...mockEventDetail, type: 'event' as const }
+	];
+
+	const allSearchItems = [...allLocations, ...allEvents];
 
 	useEffect(() => {
 		const style = document.createElement("style");
@@ -34,14 +43,20 @@ export function HomePage() {
 
 	useEffect(() => {
 		const timer = setInterval(() => {
-			setCurrentItemIndex((i: number) => (i + 1) % allLocations.length);
+			setCurrentItemIndex((i: number) => (i + 1) % allSearchItems.length);
 		}, 3000);
 		return () => clearInterval(timer);
-	}, [allLocations.length]);
+	}, [allSearchItems.length]);
 
-	const filteredLocations = allLocations.filter(location =>
-		location.name.toLowerCase().includes(searchValue.toLowerCase())
-	).slice(0, 5);
+	const filteredResults = allSearchItems.filter(item => {
+		if ('title' in item) {
+			return item.title.toLowerCase().includes(searchValue.toLowerCase());
+		}
+		if ('name' in item) {
+			return item.name.toLowerCase().includes(searchValue.toLowerCase());
+		}
+		return false;
+	}).slice(0, 5);
 
 	const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchValue(e.target.value);
@@ -49,8 +64,13 @@ export function HomePage() {
 	};
 
 	const handleUseCurrentLocation = () => {
-		setSearchValue("Jakarta");
-		setShowResults(false);
+		let value = "DKI Jakarta"
+		let provinceData = ProvinceData.find((item) => item.name === value)
+		if (!provinceData) {
+			return
+		}
+
+		navigate(provinceData.slug)
 	};
 
 	return (
@@ -82,27 +102,38 @@ export function HomePage() {
 										className="absolute inset-0 flex items-center justify-center text-sm sm:text-base lg:text-lg text-gray-500 pointer-events-none px-4"
 										style={{ animation: "locationSlide 3s infinite" }}
 									>
-										<span className="hidden sm:inline">Mau mengetahui budaya {allLocations[currentItemIndex].name}?</span>
-										<span className="sm:hidden">Cari budaya {allLocations[currentItemIndex].name}?</span>
+										<span className="hidden sm:inline">Mau mengetahui budaya {
+											'name' in allSearchItems[currentItemIndex] 
+												? allSearchItems[currentItemIndex].name 
+												: 'title' in allSearchItems[currentItemIndex] 
+													? allSearchItems[currentItemIndex].title 
+													: ''
+										}?</span>
+										<span className="sm:hidden">Cari budaya {
+											'name' in allSearchItems[currentItemIndex] 
+												? allSearchItems[currentItemIndex].name 
+												: 'title' in allSearchItems[currentItemIndex] 
+													? allSearchItems[currentItemIndex].title 
+													: ''
+										}?</span>
 									</div>
 								)}
-								{showResults && filteredLocations.length > 0 && (
-									<div className="absolute top-full left-0 right-0 mt-2 bg-white/90 backdrop-blur-md rounded-lg border-2 border-white/50 shadow-lg overflow-hidden z-50 max-h-60 sm:max-h-80 overflow-y-auto">
-										{filteredLocations.map((location) => (
+								{showResults && filteredResults.length > 0 && (
+									<div className="absolute top-full left-0 right-0 mt-2 bg-white/90 backdrop-blur-md rounded-lg border-2 border-white/50 shadow-lg overflow-hidden z-50 max-h-60 overflow-y-auto">
+										{filteredResults.map((item) => (
 											<div
-												key={location.id}
-												className="px-3 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-white/95 cursor-pointer transition-colors duration-200 border-b border-gray-200/30 last:border-b-0"
+												key={item.id}
+												className="px-4 py-3 hover:bg-white/95 cursor-pointer transition-colors duration-200 border-b border-gray-200/30 last:border-b-0"
 												onClick={() => {
-													setSearchValue(location.name);
-													setShowResults(false);
+													navigate(`/${item.slug}`);
 												}}
 											>
 												<div className="flex justify-between items-center gap-2">
-													<div className="text-gray-900 font-medium text-sm sm:text-base lg:text-lg truncate">
-														{location.name}
+													<div className="text-gray-900 font-medium text-base truncate">
+														{'title' in item ? item.title : 'name' in item ? item.name : ''}
 													</div>
 													<div className="text-gray-600 text-xs capitalize flex-shrink-0">
-														{location.type}
+														{item.type}
 													</div>
 												</div>
 											</div>

@@ -1,4 +1,5 @@
 export interface OrganizationProfile {
+  id: string;
   name: string;
   handle: string;
   location: string;
@@ -51,4 +52,5 @@ export interface EventDetail {
   description: string;
   registrationFee: number;
   additionalImages: string[];
+  slug: string;
 }
