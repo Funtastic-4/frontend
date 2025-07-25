@@ -2,6 +2,7 @@ import { Star, MapPin, Users, Camera, Heart, Share2, ChevronRight, Award, Calend
 import { Card, CardContent } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar"
+import Header from "../components/Header"
 
 export function meta() {
   return [
@@ -116,14 +117,19 @@ export default function CulturalPlaceProfile() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Cover Photo Section */}
-      <div className="relative h-72 bg-red-600 overflow-hidden">
-        <img
-          src="/placeholder.png?height=288&width=800&text=Borobudur+Temple+Panoramic+View"
-          alt="Borobudur Temple"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/30"></div>
+      {/* Header */}
+      <Header />
+      
+      {/* Content with top padding to account for fixed header */}
+      <div className="pt-20">
+        {/* Cover Photo Section */}
+        <div className="relative h-72 bg-red-600 overflow-hidden mx-6 rounded-2xl">
+          <img
+            src="/placeholder.png?height=288&width=800&text=Borobudur+Temple+Panoramic+View"
+            alt="Borobudur Temple"
+            className="w-full h-full object-cover rounded-2xl"
+          />
+          <div className="absolute inset-0 bg-black/30 rounded-2xl"></div>
 
         {/* Floating Action Buttons */}
         <div className="absolute top-6 right-6 flex gap-3">
@@ -345,6 +351,7 @@ export default function CulturalPlaceProfile() {
             </Button>
           </div>
         </div>
+      </div>
       </div>
     </div>
   )
