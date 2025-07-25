@@ -4,11 +4,13 @@ import { Button } from "~/components/ui/button";
 import { useState, useEffect } from "react";
 import { ProvinceData } from "~/module/data/province";
 import { CityData } from "~/module/data/city";
+import { useNavigate } from "react-router";
 
 export function HomePage() {
 	const [searchValue, setSearchValue] = useState("");
 	const [showResults, setShowResults] = useState(false);
 	const [currentItemIndex, setCurrentItemIndex] = useState(0);
+	const navigate = useNavigate();
 
 	const allLocations = [
 		...ProvinceData.map(p => ({ ...p, type: 'provinsi' as const })),
@@ -49,8 +51,13 @@ export function HomePage() {
 	};
 
 	const handleUseCurrentLocation = () => {
-		setSearchValue("Jakarta");
-		setShowResults(false);
+		let value = "DKI Jakarta"
+		let provinceData = ProvinceData.find((item) => item.name === value)
+		if (!provinceData) {
+			return
+		}
+
+		navigate(provinceData.slug)
 	};
 
 	return (
@@ -87,18 +94,17 @@ export function HomePage() {
 									</div>
 								)}
 								{showResults && filteredLocations.length > 0 && (
-									<div className="absolute top-full left-0 right-0 mt-2 bg-white/90 backdrop-blur-md rounded-lg border-2 border-white/50 shadow-lg overflow-hidden z-50 max-h-60 sm:max-h-80 overflow-y-auto">
+									<div className="absolute top-full left-0 right-0 mt-2 bg-white/90 backdrop-blur-md rounded-lg border-2 border-white/50 shadow-lg overflow-hidden z-50 max-h-60 overflow-y-auto">
 										{filteredLocations.map((location) => (
 											<div
 												key={location.id}
-												className="px-3 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-white/95 cursor-pointer transition-colors duration-200 border-b border-gray-200/30 last:border-b-0"
+												className="px-4 py-3 hover:bg-white/95 cursor-pointer transition-colors duration-200 border-b border-gray-200/30 last:border-b-0"
 												onClick={() => {
-													setSearchValue(location.name);
-													setShowResults(false);
+													navigate(`/${location.slug}`);
 												}}
 											>
 												<div className="flex justify-between items-center gap-2">
-													<div className="text-gray-900 font-medium text-sm sm:text-base lg:text-lg truncate">
+													<div className="text-gray-900 font-medium text-base truncate">
 														{location.name}
 													</div>
 													<div className="text-gray-600 text-xs capitalize flex-shrink-0">

@@ -1,4 +1,4 @@
-import { redirect } from "react-router";
+import { Link, redirect } from "react-router";
 import type { Route } from "./+types/places";
 import { ProvinceData } from "~/module/data/province";
 import { CityData } from "~/module/data/city";
@@ -19,7 +19,7 @@ export function loader({ params }: Route.LoaderArgs) {
 
 	const parsedSlug = slug.split("-");
 
-	if (parsedSlug.length <= 3 || parsedSlug[0] !== "budaya") {
+	if (parsedSlug.length < 3 || parsedSlug[0] !== "budaya") {
 
 		throw redirect("/");
 	}
@@ -47,22 +47,45 @@ export function loader({ params }: Route.LoaderArgs) {
 export default function Places({ loaderData }: Route.ComponentProps) {
 	const { data, type } = loaderData;
 
+	const getProvince = () => {
+		if (type === "kota" && data.province_id) {
+			const province = ProvinceData.find(p => p.id === data.province_id);
+			return province;
+		}
+		return null;
+	};
+
+	const gradientClass = type === "provinsi"
+		? "bg-gradient-to-b from-red-200 to-white"
+		: "bg-gradient-to-b from-blue-200 to-white";
+
+	const province = getProvince();
+
 	return (
-		<div className="container mx-auto px-4 py-8">
-			<div className="max-w-4xl mx-auto">
-				<div className="mb-4">
-					<span className="inline-block px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded-full capitalize">
-						{type}
-					</span>
+		<div className="relative w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+			<div className={`relative w-full ${gradientClass} h-[200px] sm:h-[400px] lg:h-[300x] rounded-xl`}>
+				<div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6 lg:px-8 pt-8">
+					<div className="relative w-full max-w-2xl text-left">
+						{province && (
+							<div className="mb-3">
+								<Link to={`/${province.slug}`} >
+									<span className="inline-block px-3 py-1 text-sm font-medium bg-white/80 text-gray-700 rounded-full">
+										{province.name}
+									</span>
+								</Link >
+							</div>
+						)}
+						<h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
+							Budaya {data.name}
+						</h1>
+					</div>
 				</div>
-				<h1 className="text-3xl font-bold text-gray-900 mb-6">
-					Budaya {data.name}
-				</h1>
-				<div className="bg-white rounded-lg shadow-md p-6">
-					<p className="text-gray-600">
-						Informasi tentang budaya {data.name} akan ditampilkan di sini.
-					</p>
-				</div>
+			</div>
+
+			<div className="bg-white/80 backdrop-blur-md rounded-lg shadow-lg w-full p-6">
+				<p className="text-gray-700">
+					Informasi tentang budaya {data.name} akan ditampilkan di sini.
+				</p>
 			</div>
 		</div>
 	);
