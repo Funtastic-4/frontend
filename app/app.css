@@ -63,6 +63,16 @@ body {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  
+  /* Custom responsive utilities for extra small screens */
+  @media (min-width: 320px) {
+    .xs\:inline { display: inline; }
+    .xs\:flex { display: flex; }
+    .xs\:flex-row { flex-direction: row; }
+    .xs\:items-center { align-items: center; }
+    .xs\:gap-4 { gap: 1rem; }
+    .xs\:gap-2 { gap: 0.5rem; }
+  }
 }
 
 :root {
