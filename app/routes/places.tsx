@@ -19,7 +19,8 @@ export function loader({ params }: Route.LoaderArgs) {
 
 	const parsedSlug = slug.split("-");
 
-	if (parsedSlug.length !== 3 || parsedSlug[0] !== "budaya") {
+	if (parsedSlug.length <= 3 || parsedSlug[0] !== "budaya") {
+
 		throw redirect("/");
 	}
 
@@ -29,7 +30,7 @@ export function loader({ params }: Route.LoaderArgs) {
 		throw redirect("/");
 	}
 
-	const data: PlaceData | undefined = type === "provinsi" 
+	const data: PlaceData | undefined = type === "provinsi"
 		? ProvinceData.find((item) => item.slug === slug)
 		: CityData.find((item) => item.slug === slug);
 
@@ -45,7 +46,7 @@ export function loader({ params }: Route.LoaderArgs) {
 
 export default function Places({ loaderData }: Route.ComponentProps) {
 	const { data, type } = loaderData;
-	
+
 	return (
 		<div className="container mx-auto px-4 py-8">
 			<div className="max-w-4xl mx-auto">
