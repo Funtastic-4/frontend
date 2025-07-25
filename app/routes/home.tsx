@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
 import OrganizationProfile  from "../org_profile/OrganizationProfile"
+import AboutUs from "./AboutUs";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +10,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <OrganizationProfile />;
+  return <AboutUs />;
 }
