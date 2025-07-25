@@ -4,7 +4,7 @@ import { Button } from "~/components/ui/button";
 import { useState, useEffect } from "react";
 import { ProvinceData } from "~/module/data/province";
 import { CityData } from "~/module/data/city";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { mockEventDetail, mockProfile } from "~/services/api";
 
 export function HomePage() {
@@ -65,15 +65,6 @@ export function HomePage() {
 		setShowResults(e.target.value.length > 0);
 	};
 
-	const handleUseCurrentLocation = () => {
-		let value = "DKI Jakarta"
-		let provinceData = ProvinceData.find((item) => item.name === value)
-		if (!provinceData) {
-			return
-		}
-
-		navigate(provinceData.slug)
-	};
 
 	return (
 		<div className="relative w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
@@ -105,17 +96,17 @@ export function HomePage() {
 										style={{ animation: "locationSlide 3s infinite" }}
 									>
 										<span className="hidden sm:inline">Mau mengetahui budaya {
-											'name' in allSearchItems[currentItemIndex] 
-												? allSearchItems[currentItemIndex].name 
-												: 'title' in allSearchItems[currentItemIndex] 
-													? allSearchItems[currentItemIndex].title 
+											'name' in allSearchItems[currentItemIndex]
+												? allSearchItems[currentItemIndex].name
+												: 'title' in allSearchItems[currentItemIndex]
+													? allSearchItems[currentItemIndex].title
 													: ''
 										}?</span>
 										<span className="sm:hidden">Cari budaya {
-											'name' in allSearchItems[currentItemIndex] 
-												? allSearchItems[currentItemIndex].name 
-												: 'title' in allSearchItems[currentItemIndex] 
-													? allSearchItems[currentItemIndex].title 
+											'name' in allSearchItems[currentItemIndex]
+												? allSearchItems[currentItemIndex].name
+												: 'title' in allSearchItems[currentItemIndex]
+													? allSearchItems[currentItemIndex].title
 													: ''
 										}?</span>
 									</div>
@@ -143,13 +134,14 @@ export function HomePage() {
 									</div>
 								)}
 							</div>
-							<Button
-								onClick={handleUseCurrentLocation}
-								variant="outline"
-								className="bg-white/80 backdrop-blur-md border-white/50 hover:bg-white/90 text-gray-700 rounded-full px-6 py-2 text-sm sm:text-base"
-							>
-								Gunakan Lokasi Saat Ini
-							</Button>
+							<Link to={"/cultural-heritage"}>
+								<Button
+									variant="outline"
+									className="bg-white/80 backdrop-blur-md border-white/50 hover:bg-white/90 text-gray-700 rounded-full px-6 py-2 text-sm sm:text-base"
+								>
+									Gunakan Lokasi Saat Ini
+								</Button>
+							</Link>
 						</div>
 					</div>
 				</div>
