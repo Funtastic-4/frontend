@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { ProvinceData } from "~/module/data/province";
 import { CityData } from "~/module/data/city";
 import { useNavigate } from "react-router";
-import { mockEventDetail } from "~/services/api";
+import { mockEventDetail, mockProfile } from "~/services/api";
 
 export function HomePage() {
 	const [searchValue, setSearchValue] = useState("");
@@ -22,7 +22,9 @@ export function HomePage() {
 		{ ...mockEventDetail, type: 'event' as const }
 	];
 
-	const allSearchItems = [...allLocations, ...allEvents];
+	const allOrganizations = mockProfile.map(org => ({ ...org, type: 'organization' as const }));
+
+	const allSearchItems = [...allLocations, ...allEvents, ...allOrganizations];
 
 	useEffect(() => {
 		const style = document.createElement("style");

@@ -14,6 +14,7 @@ export interface OrganizationProfile {
     phone?: string;
     website?: string;
   };
+  slug: string;
 }
 
 export interface Achievement {

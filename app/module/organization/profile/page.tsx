@@ -7,7 +7,11 @@ import { Card, CardContent } from "~/components/ui/card";
 import { getOrganizationProfile } from "~/services/api";
 import type { OrganizationProfile as OrganizationProfileType } from "~/type";
 
-const OrganizationProfile = () => {
+const OrganizationProfile = ({
+	id
+}: {
+	id: string
+}) => {
 	const [profile, setProfile] = useState<OrganizationProfileType | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
@@ -15,8 +19,12 @@ const OrganizationProfile = () => {
 	useEffect(() => {
 		const fetchProfile = async () => {
 			try {
-				const data = await getOrganizationProfile();
-				setProfile(data);
+				const data = await getOrganizationProfile({
+					id: id
+				});
+				if (data) {
+					setProfile(data)
+				}
 			} catch (err) {
 				setError("Failed to fetch profile data.");
 			} finally {

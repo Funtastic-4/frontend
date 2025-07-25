@@ -2,7 +2,7 @@ import { Link, redirect } from "react-router";
 import type { Route } from "./+types/places";
 import { ProvinceData } from "~/module/data/province";
 import { CityData } from "~/module/data/city";
-import { mockEventDetail } from "~/services/api";
+import { mockEventDetail, mockProfile } from "~/services/api";
 
 type PlaceData = {
 	id: string;
@@ -26,6 +26,14 @@ export function loader({ params }: Route.LoaderArgs) {
 			throw redirect("/");
 		}
 		throw redirect(`/event_detail/${eventData.id}`);
+	}
+
+	if (parsedSlug.length >= 3 && parsedSlug[0] === "organization") {
+		const organizationData = mockProfile.find(org => org.slug === slug);
+		if (!organizationData) {
+			throw redirect("/");
+		}
+		throw redirect(`/organization/profile/${organizationData.id}`);
 	}
 
 	if (parsedSlug.length < 3 || parsedSlug[0] !== "budaya") {
