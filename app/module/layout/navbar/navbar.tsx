@@ -99,7 +99,7 @@ export default function Navbar() {
 								{item.label}
 							</NavLink>
 						))}
-						{location.pathname !== "/auth/login" && <NavLink
+						{location.pathname === "/" && <NavLink
 							to="/auth/login"
 							className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium text-sm
                        transition-colors duration-200"
@@ -154,7 +154,7 @@ export default function Navbar() {
 										{item.label}
 									</NavLink>
 								))}
-								{location.pathname !== "/auth/login" && <NavLink
+								{location.pathname === "/" && <NavLink
 									to="/auth/login"
 									onClick={() => setIsMobileMenuOpen(false)}
 									className="block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium text-sm
