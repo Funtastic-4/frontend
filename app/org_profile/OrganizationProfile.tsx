@@ -18,6 +18,7 @@ const OrganizationProfile = () => {
         const data = await getOrganizationProfile();
         setProfile(data);
       } catch (err) {
+        console.error("Error fetching profile data:", err);
         setError("Failed to fetch profile data.");
       } finally {
         setLoading(false);

@@ -1,4 +1,4 @@
-import { Award, Calendar, ExternalLink, MapPin, MessageCircle, Star, Users, Lightbulb } from "lucide-react";
+import { Calendar, ExternalLink, MapPin, MessageCircle, Star, Users, Lightbulb } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
