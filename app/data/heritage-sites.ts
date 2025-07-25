@@ -56,12 +56,9 @@ export const heritageSites: HeritageSite[] = [
     highlights: ["UNESCO World Heritage", "Buddhist Monument", "Sunrise Ceremony", "Stone Carvings"],
     coverImage: "https://torch.id/cdn/shop/articles/Artikel_173_-_Preview.webp?v=1713644561",
     galleryImages: [
-      "/placeholder.png?height=200&width=300&text=Borobudur+Sunrise",
-      "/placeholder.png?height=200&width=300&text=Buddha+Statues",
-      "/placeholder.png?height=200&width=300&text=Stone+Reliefs",
-      "/placeholder.png?height=200&width=300&text=Temple+Architecture",
-      "/placeholder.png?height=200&width=300&text=Cultural+Ceremony",
-      "/placeholder.png?height=200&width=300&text=Panoramic+View",
+      "https://fatek.umsu.ac.id/wp-content/uploads/2023/06/Candi-Borobudur-Makna-Yang-Terkandung-di-Dalamnya.jpg",
+      "https://www.sustainlifetoday.com/wp-content/uploads/2025/05/candi-borobudur-1.jpg",
+      "https://desawisataborobudur.com/wp-content/uploads/2024/07/Misteri-dan-Mitologi-di-Balik-Candi-Borobudur.jpg",
     ]
   },
   {
@@ -78,12 +75,9 @@ export const heritageSites: HeritageSite[] = [
     highlights: ["UNESCO Heritage", "Traditional Spices", "Slow-Cooked", "Minangkabau Origin"],
     coverImage: "https://www.frisianflag.com/storage/app/media/uploaded-files/rendang-padang.jpg",
     galleryImages: [
-      "/placeholder.png?height=200&width=300&text=Rendang+Cooking",
-      "/placeholder.png?height=200&width=300&text=Traditional+Spices",
-      "/placeholder.png?height=200&width=300&text=Coconut+Preparation",
-      "/placeholder.png?height=200&width=300&text=Final+Dish",
-      "/placeholder.png?height=200&width=300&text=Family+Recipe",
-      "/placeholder.png?height=200&width=300&text=Traditional+Kitchen",
+      "https://www.astronauts.id/blog/wp-content/uploads/2023/03/Resep-Rendang-Daging-Sapi-Untuk-Lebaran-Gurih-dan-Nikmat.jpg",
+      "https://rajominang.id/blog/uploads/images/202407/image_750x_66825d6c67460.jpg",
+      "https://www.dapurkobe.co.id/wp-content/uploads/rendang-daging-sapi-pedas.jpg",
     ]
   },
   {
@@ -100,12 +94,9 @@ export const heritageSites: HeritageSite[] = [
     highlights: ["Ramayana Story", "Fire Performance", "Vocal Percussion", "Spiritual Drama"],
     coverImage: "https://www.raftingbali.net/wp-content/uploads/2020/01/Kecak-Dance-Bali.jpg",
     galleryImages: [
-      "/placeholder.png?height=200&width=300&text=Fire+Performance",
-      "/placeholder.png?height=200&width=300&text=Circle+Formation",
-      "/placeholder.png?height=200&width=300&text=Traditional+Costumes",
-      "/placeholder.png?height=200&width=300&text=Hanuman+Character",
-      "/placeholder.png?height=200&width=300&text=Evening+Show",
-      "/placeholder.png?height=200&width=300&text=Audience+View",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjD3LWQKkGRnKSAHoWYSkmMLbTG2NpG-q05Q&s",
+      "https://bitnews.id/wp-content/uploads/2022/06/shutterstock_409292383.jpg",
+      "https://unair.ac.id/wp-content/uploads/2024/07/Tari-kecak.png",
     ]
   },
   {
@@ -123,12 +114,9 @@ export const heritageSites: HeritageSite[] = [
     highlights: ["Prehistoric Artifacts", "Cultural Diversity", "Archaeological Treasures", "Educational Programs"],
     coverImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Front_facade_-_National_Museum_Indonesia%2C_Jakarta_%282025%29_-_img_03.jpg/500px-Front_facade_-_National_Museum_Indonesia%2C_Jakarta_%282025%29_-_img_03.jpg",
     galleryImages: [
-      "/placeholder.png?height=200&width=300&text=Museum+Exterior",
-      "/placeholder.png?height=200&width=300&text=Ancient+Sculptures",
-      "/placeholder.png?height=200&width=300&text=Traditional+Textiles",
-      "/placeholder.png?height=200&width=300&text=Archaeological+Hall",
-      "/placeholder.png?height=200&width=300&text=Cultural+Exhibits",
-      "/placeholder.png?height=200&width=300&text=Visitor+Gallery",
+      "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2025/01/06/15593d91-cf85-4144-b3ba-810a2b71a344-1736130939685-73f3d7cd9693daf2cc741c1e5713da16.png",
+      "https://manual.co.id/wp-content/uploads/2024/11/02_untitled-0825_Website-980x719.jpg",
+      "https://jnewsonline.com/wp-content/uploads/2023/12/museum-nasional-Indonesia.jpg",
     ]
   },
   {
@@ -145,12 +133,9 @@ export const heritageSites: HeritageSite[] = [
     highlights: ["Peanut Sauce", "Grilled Perfection", "Street Food Culture", "Regional Variations"],
     coverImage: "https://asset.kompas.com/crops/QgfVXuMhL5tHLqnJKfGPs9Yx5xY=/100x67:900x600/750x500/data/photo/2023/10/24/6537126d64f8b.jpeg",
     galleryImages: [
-      "/placeholder.png?height=200&width=300&text=Grilling+Sate",
-      "/placeholder.png?height=200&width=300&text=Peanut+Sauce",
-      "/placeholder.png?height=200&width=300&text=Street+Vendor",
-      "/placeholder.png?height=200&width=300&text=Traditional+Serving",
-      "/placeholder.png?height=200&width=300&text=Local+Warung",
-      "/placeholder.png?height=200&width=300&text=Family+Meal",
+      "https://asset.kompas.com/crops/96rHbnDkTGNa8Y-xW247623hONA=/0x0:1000x667/750x500/data/photo/2023/12/19/6580e31d4d33e.jpeg",
+      "https://monicaisinthekitchen.wordpress.com/wp-content/uploads/2018/01/img_e2700.jpg",
+      "https://i0.wp.com/resepkoki.id/wp-content/uploads/2017/02/Resep-Sate-Ayam-Madura.jpg?fit=1920%2C1804&ssl=1",
     ]
   },
   {
@@ -168,12 +153,9 @@ export const heritageSites: HeritageSite[] = [
     highlights: ["Betawi Culture", "Traditional Arts", "Local Cuisine", "Folk Performances"],
     coverImage: "https://cnc-magazine.oramiland.com/parenting/images/desa_wisata_kampung_betawi.width-800.format-webp.webp",
     galleryImages: [
-      "/placeholder.png?height=200&width=300&text=Betawi+House",
-      "/placeholder.png?height=200&width=300&text=Traditional+Dance",
-      "/placeholder.png?height=200&width=300&text=Local+Crafts",
-      "/placeholder.png?height=200&width=300&text=Cultural+Show",
-      "/placeholder.png?height=200&width=300&text=Traditional+Food",
-      "/placeholder.png?height=200&width=300&text=Lake+View",
+      "https://www.socialexpat.net/wp-content/uploads/2023/02/socialexpat-learn-betawi-culture-at-kampung-betawi-setu-babakan-cover.jpg",
+      "https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/mp/uploads/cover-half-day-tour-kampung-betawi-52.jpg",
+      "https://anekatempatwisata.com/wp-content/uploads/2022/05/Perkampungan-Budaya-Betawi-Setu-Babakan-strategi-720x600.jpg",
     ]
   }
 ];
