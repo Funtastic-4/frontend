@@ -2,6 +2,7 @@ import { Link, redirect } from "react-router";
 import type { Route } from "./+types/places";
 import { ProvinceData } from "~/module/data/province";
 import { CityData } from "~/module/data/city";
+import { mockEventDetail } from "~/services/api";
 
 type PlaceData = {
 	id: string;
@@ -19,8 +20,15 @@ export function loader({ params }: Route.LoaderArgs) {
 
 	const parsedSlug = slug.split("-");
 
-	if (parsedSlug.length < 3 || parsedSlug[0] !== "budaya") {
+	if (parsedSlug.length >= 3 && parsedSlug[0] === "event") {
+		const eventData = mockEventDetail.slug === slug ? mockEventDetail : null;
+		if (!eventData) {
+			throw redirect("/");
+		}
+		throw redirect(`/event_detail/${eventData.id}`);
+	}
 
+	if (parsedSlug.length < 3 || parsedSlug[0] !== "budaya") {
 		throw redirect("/");
 	}
 
@@ -48,7 +56,7 @@ export default function Places({ loaderData }: Route.ComponentProps) {
 	const { data, type } = loaderData;
 
 	const getProvince = () => {
-		if (type === "kota" && data.province_id) {
+		if (type === "kota" && 'province_id' in data && data.province_id) {
 			const province = ProvinceData.find(p => p.id === data.province_id);
 			return province;
 		}
@@ -76,7 +84,7 @@ export default function Places({ loaderData }: Route.ComponentProps) {
 							</div>
 						)}
 						<h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
-							Budaya {data.name}
+							Budaya {'name' in data ? data.name : ''}
 						</h1>
 					</div>
 				</div>
@@ -84,7 +92,7 @@ export default function Places({ loaderData }: Route.ComponentProps) {
 
 			<div className="bg-white/80 backdrop-blur-md rounded-lg shadow-lg w-full p-6">
 				<p className="text-gray-700">
-					Informasi tentang budaya {data.name} akan ditampilkan di sini.
+					Informasi tentang budaya {'name' in data ? data.name : ''} akan ditampilkan di sini.
 				</p>
 			</div>
 		</div>
