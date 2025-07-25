@@ -30,11 +30,11 @@ export default function CulturalHeritageList() {
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-6 sm:py-8">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <div className="bg-white rounded-3xl shadow-lg border border-red-100 p-8 sm:p-12 mb-8">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent mb-4">
+          <div className="rounded-3xl shadow-lg border border-red-100 p-8 sm:p-12 mb-8" style={{background: 'linear-gradient(135deg, #8c1817, #b91c1c)'}}>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Indonesian Cultural Heritage
             </h1>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-white text-lg max-w-2xl mx-auto">
               Discover the rich cultural tapestry of Indonesia through our diverse heritage collection
             </p>
           </div>
