@@ -8,7 +8,7 @@ export const mockProfile: OrganizationProfile[] = [
     location: "Yogyakarta, Indonesia",
     description:
       "We are dedicated to preserving and promoting the rich cultural heritage of Yogyakarta. Our mission is to connect travelers with authentic local experiences while supporting traditional artisans and cultural practitioners. Through our programs, we bridge the gap between ancient traditions and modern tourism, ensuring that our cultural legacy continues to thrive for future generations.",
-    coverPhoto: "/placeholder.png?height=320&width=800",
+    coverPhoto: "https://phinemo.com/wp-content/uploads/2018/02/Logo-WI-Final-20092017.png?height=320&width=800",
     profilePicture: "/placeholder.svg?height=128&width=128",
     achievements: [
       { value: "150+", label: "Cultural Sites Preserved" },
@@ -86,7 +86,7 @@ export const mockProfile: OrganizationProfile[] = [
 export const mockEventDetail: EventDetail = {
   id: "k7btup9yv02z",
   coverPhoto:
-    "https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA",
+    "https://www.rinso.com/images/h0nadbhvm6m4/17RmARrAatDIJ0x2DxsGSc/68f28770f0815e43ef8408c6751dcefb/MDIuX1JpbnNvX09rdG9iZXJfSGVhZGVyLmpwZw/1000w-668h/pembatik-pemula.jpg",
   title: "Batik Workshop & Cultural Tour",
   date: "March 15, 2024",
   time: "10:00 AM - 2:00 PM",
@@ -95,9 +95,9 @@ export const mockEventDetail: EventDetail = {
     "Immerse yourself in the rich cultural heritage of Yogyakarta by joining our exclusive Batik Workshop & Cultural Tour. This unique experience offers a hands-on opportunity to learn the ancient art of batik making from skilled local artisans. You will discover the history and symbolism behind the intricate patterns and create your own batik masterpiece to take home as a cherished souvenir.<br /><br />After the workshop, we will guide you on a cultural tour of the surrounding area, visiting historical landmarks and hidden gems that are often missed by tourists. This is more than just a tour; it's a chance to connect with the local community and support the preservation of traditional crafts.",
   registrationFee: 250000,
   additionalImages: [
-    "https://images.unsplash.com/photo-1591602207244-022587a3194a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1587440871875-191322fc8383?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1582510003007-3590d8288502?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://asset.kompas.com/crops/tmDvaNLzsbMqcpmB6HTaUdQL3MY=/0x35:1000x535/1200x800/data/photo/2019/05/31/876893028.jpg",
+    "https://pict.sindonews.net/dyn/850/pena/news/2023/10/01/186/1214799/mengenal-alatalat-membatik-dari-canting-hingga-zat-pewarna-ztu.jpg",
+    "https://assets.radarpekalongan.id/main/2023/07/kabar-warga-1200x675.webp",
   ],
   slug: "event-batik-workshop-jogjakarta",
 };
