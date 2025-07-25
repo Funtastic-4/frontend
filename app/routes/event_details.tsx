@@ -1,24 +1,56 @@
 import { Calendar, Clock, MapPin, Ticket } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
+import { getEventDetail } from "~/services/api";
+import type { EventDetail as EventDetailType } from "~/types";
 
 const EventDetails = () => {
-  const registrationFee = 250000;
+  const [eventDetail, setEventDetail] = useState<EventDetailType | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchEventDetail = async () => {
+      try {
+        const data = await getEventDetail("1"); // Hardcoded ID for now
+        setEventDetail(data);
+      } catch (err) {
+        setError("Failed to fetch event details.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEventDetail();
+  }, []);
+
+  if (loading) {
+    return <div className="flex justify-center items-center h-screen">Loading event details...</div>;
+  }
+
+  if (error) {
+    return <div className="flex justify-center items-center h-screen text-red-500">{error}</div>;
+  }
+
+  if (!eventDetail) {
+    return <div className="flex justify-center items-center h-screen">No event data available.</div>;
+  }
 
   return (
     <div className="mx-auto min-h-screen max-w-4xl bg-white p-4 md:p-6">
       {/* Event Header */}
       <div className="mb-6">
         <h1 className="mb-2 text-3xl font-bold text-gray-900 md:text-4xl">
-          Batik Workshop & Cultural Tour
+          {eventDetail.title}
         </h1>
       </div>
 
       {/* Event Image */}
       <div className="mb-6 overflow-hidden rounded-2xl h-40 md:h-52">
         <img
-          src="https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA"
+          src={eventDetail.coverPhoto}
           alt="Event Image"
           className="h-full w-full object-cover"
         />
@@ -30,15 +62,15 @@ const EventDetails = () => {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-4 text-gray-700">
             <div className="flex items-center gap-2">
               <Calendar size={20} className="text-red-500" />
-              <span className="font-medium">March 15, 2024</span>
+              <span className="font-medium">{eventDetail.date}</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock size={20} className="text-red-500" />
-              <span className="font-medium">10:00 AM - 2:00 PM</span>
+              <span className="font-medium">{eventDetail.time}</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin size={20} className="text-red-500" />
-              <span className="font-medium">Taman Sari, Yogyakarta</span>
+              <span className="font-medium">{eventDetail.location}</span>
             </div>
           </div>
         </CardContent>
@@ -50,23 +82,14 @@ const EventDetails = () => {
           <Card className="border-gray-200 bg-gray-50">
             <CardContent className="p-6">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">About the Event</h2>
-              <p className="leading-relaxed text-gray-700">
-                Immerse yourself in the rich cultural heritage of Yogyakarta by joining our exclusive Batik Workshop & Cultural Tour. This unique experience offers a hands-on opportunity to learn the ancient art of batik making from skilled local artisans. You will discover the history and symbolism behind the intricate patterns and create your own batik masterpiece to take home as a cherished souvenir.
-                <br />
-                <br />
-                After the workshop, we will guide you on a cultural tour of the surrounding area, visiting historical landmarks and hidden gems that are often missed by tourists. This is more than just a tour; it's a chance to connect with the local community and support the preservation of traditional crafts.
-              </p>
+              <p className="leading-relaxed text-gray-700" dangerouslySetInnerHTML={{ __html: eventDetail.description }} />
               {/* Additional Images */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="overflow-hidden rounded-lg">
-                  <img src="https://images.unsplash.com/photo-1591602207244-022587a3194a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Batik Workshop" className="w-full h-32 object-cover" />
-                </div>
-                <div className="overflow-hidden rounded-lg">
-                  <img src="https://images.unsplash.com/photo-1587440871875-191322fc8383?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cultural Tour" className="w-full h-32 object-cover" />
-                </div>
-                <div className="overflow-hidden rounded-lg">
-                  <img src="https://images.unsplash.com/photo-1582510003007-3590d8288502?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Yogyakarta Heritage" className="w-full h-32 object-cover" />
-                </div>
+                {eventDetail.additionalImages.map((image, index) => (
+                  <div key={index} className="overflow-hidden rounded-lg">
+                    <img src={image} alt={`Additional Event Image ${index + 1}`} className="w-full h-32 object-cover" />
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -80,7 +103,7 @@ const EventDetails = () => {
               <div className="mb-4 flex items-center gap-2">
                 <Ticket size={20} className="text-red-500" />
                 <span className="text-xl font-bold text-gray-900">
-                  {registrationFee > 0 ? `Rp ${registrationFee.toLocaleString()}` : "Free"}
+                  {eventDetail.registrationFee > 0 ? `Rp ${eventDetail.registrationFee.toLocaleString()}` : "Free"}
                 </span>
               </div>
               <p className="mb-4 text-sm text-gray-600">

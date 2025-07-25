@@ -40,3 +40,15 @@ export interface Review {
   rating: number;
   comment: string;
 }
+
+export interface EventDetail {
+  id: string;
+  coverPhoto: string;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+  registrationFee: number;
+  additionalImages: string[];
+}
