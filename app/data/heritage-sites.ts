@@ -54,7 +54,7 @@ export const heritageSites: HeritageSite[] = [
     coordinates: "7°36′29″S 110°12′14″E",
     description: "Borobudur is a magnificent 9th-century Mahayana Buddhist temple and one of the greatest Buddhist monuments in the world. This ancient marvel features over 2,600 relief panels and 504 Buddha statues, telling the story of Buddhist cosmology and the path to enlightenment. Experience sunrise ceremonies, explore intricate stone carvings, and immerse yourself in centuries of spiritual heritage while learning about traditional Javanese culture and Buddhist philosophy.",
     highlights: ["UNESCO World Heritage", "Buddhist Monument", "Sunrise Ceremony", "Stone Carvings"],
-    coverImage: "/placeholder.png?height=288&width=800&text=Borobudur+Temple",
+    coverImage: "https://torch.id/cdn/shop/articles/Artikel_173_-_Preview.webp?v=1713644561",
     galleryImages: [
       "/placeholder.png?height=200&width=300&text=Borobudur+Sunrise",
       "/placeholder.png?height=200&width=300&text=Buddha+Statues",
@@ -76,7 +76,7 @@ export const heritageSites: HeritageSite[] = [
     visitors: "Enjoyed Worldwide",
     description: "Rendang is a traditional Indonesian spiced meat dish originating from West Sumatra. This slow-cooked curry is made with beef, coconut milk, and a complex blend of spices including chili, galangal, lemongrass, and turmeric. The long cooking process allows the meat to absorb the rich flavors while the liquid reduces to a thick, dark sauce. Rendang has been recognized by UNESCO as an Intangible Cultural Heritage and is beloved across Indonesia and Southeast Asia.",
     highlights: ["UNESCO Heritage", "Traditional Spices", "Slow-Cooked", "Minangkabau Origin"],
-    coverImage: "/placeholder.png?height=288&width=800&text=Rendang+Dish",
+    coverImage: "https://www.frisianflag.com/storage/app/media/uploaded-files/rendang-padang.jpg",
     galleryImages: [
       "/placeholder.png?height=200&width=300&text=Rendang+Cooking",
       "/placeholder.png?height=200&width=300&text=Traditional+Spices",
@@ -98,7 +98,7 @@ export const heritageSites: HeritageSite[] = [
     visitors: "Thousands Monthly",
     description: "Kecak is a traditional Balinese dance and music drama that originated in the 1930s. Also known as the 'fire dance' or 'monkey chant,' it features a large group of men sitting in concentric circles, chanting 'cak' in rhythmic harmony while moving their hands and bodies. The performance typically depicts scenes from the Ramayana epic, with dancers portraying Hanuman and other characters. The mesmerizing combination of vocal percussion, dramatic storytelling, and fire elements creates an unforgettable cultural experience.",
     highlights: ["Ramayana Story", "Fire Performance", "Vocal Percussion", "Spiritual Drama"],
-    coverImage: "/placeholder.png?height=288&width=800&text=Kecak+Dance",
+    coverImage: "https://www.raftingbali.net/wp-content/uploads/2020/01/Kecak-Dance-Bali.jpg",
     galleryImages: [
       "/placeholder.png?height=200&width=300&text=Fire+Performance",
       "/placeholder.png?height=200&width=300&text=Circle+Formation",
@@ -121,7 +121,7 @@ export const heritageSites: HeritageSite[] = [
     coordinates: "6°10′23″S 106°48′16″E",
     description: "The National Museum of Indonesia, also known as Museum Gajah (Elephant Museum), is the largest and most comprehensive museum in Indonesia. Established in 1778, it houses an extensive collection of cultural artifacts, archaeological findings, and ethnographic objects from across the Indonesian archipelago. The museum showcases Indonesia's rich cultural diversity through prehistoric artifacts, ancient sculptures, traditional textiles, ceramics, and numismatic collections, offering visitors a comprehensive journey through Indonesian history and culture.",
     highlights: ["Prehistoric Artifacts", "Cultural Diversity", "Archaeological Treasures", "Educational Programs"],
-    coverImage: "/placeholder.png?height=288&width=800&text=National+Museum",
+    coverImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Front_facade_-_National_Museum_Indonesia%2C_Jakarta_%282025%29_-_img_03.jpg/500px-Front_facade_-_National_Museum_Indonesia%2C_Jakarta_%282025%29_-_img_03.jpg",
     galleryImages: [
       "/placeholder.png?height=200&width=300&text=Museum+Exterior",
       "/placeholder.png?height=200&width=300&text=Ancient+Sculptures",
@@ -143,7 +143,7 @@ export const heritageSites: HeritageSite[] = [
     visitors: "Daily Consumption",
     description: "Sate Ayam (Chicken Satay) is one of Indonesia's most beloved and iconic dishes. These skewered and grilled chicken pieces are marinated in a blend of traditional spices and served with rich peanut sauce, rice cakes (lontong), and fresh vegetables. Each region in Indonesia has its own unique preparation style and sauce variations. This simple yet flavorful dish represents the essence of Indonesian street food culture and has become a symbol of Indonesian cuisine worldwide.",
     highlights: ["Peanut Sauce", "Grilled Perfection", "Street Food Culture", "Regional Variations"],
-    coverImage: "/placeholder.png?height=288&width=800&text=Sate+Ayam",
+    coverImage: "https://asset.kompas.com/crops/QgfVXuMhL5tHLqnJKfGPs9Yx5xY=/100x67:900x600/750x500/data/photo/2023/10/24/6537126d64f8b.jpeg",
     galleryImages: [
       "/placeholder.png?height=200&width=300&text=Grilling+Sate",
       "/placeholder.png?height=200&width=300&text=Peanut+Sauce",
@@ -166,7 +166,7 @@ export const heritageSites: HeritageSite[] = [
     coordinates: "6°17′31″S 106°50′15″E",
     description: "Setu Babakan Betawi Cultural Village preserves and showcases the traditional culture of Jakarta's indigenous Betawi people. Visitors can experience authentic Betawi architecture, traditional arts, local cuisine, and folk performances while learning about the rich heritage of Jakarta's native community in this living cultural center.",
     highlights: ["Betawi Culture", "Traditional Arts", "Local Cuisine", "Folk Performances"],
-    coverImage: "/placeholder.png?height=288&width=800&text=Betawi+Village",
+    coverImage: "https://cnc-magazine.oramiland.com/parenting/images/desa_wisata_kampung_betawi.width-800.format-webp.webp",
     galleryImages: [
       "/placeholder.png?height=200&width=300&text=Betawi+House",
       "/placeholder.png?height=200&width=300&text=Traditional+Dance",
