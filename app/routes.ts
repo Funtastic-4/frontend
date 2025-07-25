@@ -8,5 +8,6 @@ export default [
   route("/auth/register", "routes/register.tsx"),
   route("/volunteer/register", "routes/volunteer-register.tsx"),
   route("/organization/register", "routes/organization-register.tsx"),
-  route("/organization/profile", "routes/organization-profile.tsx")
+  route("/organization/profile", "routes/organization-profile.tsx"),
+  route("event_details", "routes/event_details.tsx"),
 ] satisfies RouteConfig;
